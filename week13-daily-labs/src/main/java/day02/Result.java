@@ -19,7 +19,7 @@ public class Result {
             while((line=br.readLine())!=null){
                 String[] temp=line.split(" ");
                 if(!results.containsKey(temp[0])){
-                    results.put(temp[0],new ArrayList<>(Collections.singleton(temp[1])));
+                    results.put(temp[0],new ArrayList<>());
                 }
                 for (Map.Entry<String,List<String>> actual: results.entrySet()) {
                     if(actual.getKey().equals(temp[0])){
@@ -47,7 +47,7 @@ public class Result {
     public String searchBest(String filename){
         readFromFile(filename);
         int result=0;
-        int maxResult=0;
+        int maxResult=-100;
         String maxCode="";
         for (Map.Entry<String,List<String>> actual:results.entrySet()) {
             for (int i = 1; i <6 ; i++) {
